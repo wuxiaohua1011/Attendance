@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Attendance</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string-array name="player_names">
+        <item>Please Select a Player</item>
+        <item>Austin Wong</item>
+        <item>Autin Yang</item>
+        <item>Charles Liu</item>
+        <item>Cheolmin Hwang</item>
+        <item>Jiamin Xu</item>
+        <item>Jonathan Sawyer</item>
+        <item>Josh Kim</item>
+        <item>Kevin Xu</item>
+        <item>Mark Wang</item>
+        <item>Michael Wu</item>
+        <item>Schwab Ho</item>
+        <item>Stanton Ho</item>
+        <item>Steven Wu</item>
+        <item>Tim Li</item>
+        <item>Victor Zhang</item>
+        <item>William Yip</item>
+        <item>Wilson Mo</item>
+        <item>Wilson Tizon</item>
+        <item>Emily Choi</item>
+        <item>Erin Seo</item>
+        <item>Hana Lim</item>
+        <item>Jamilah Hah</item>
+        <item>Jennifer Kang </item>
+        <item>Jiaqi Chen</item>
+        <item>Joan Choi</item>
+        <item>Kazi Maimuna</item>
+        <item>Lucy Tian</item>
+        <item>Meghana Sagare</item>
+        <item>Samantha Chavez</item>
+        <item>Sophia Gerodiaz</item>
+        <item>Susan Yang</item>
+    </string-array>
+    <string-array name="status">
+        <item>Please Select a Status</item>
+        <item>Present</item>
+        <item>Absent</item>
+        <item>Excused</item>
+    </string-array>
+</resources>

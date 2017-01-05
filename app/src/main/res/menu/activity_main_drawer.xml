@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/take_attendance"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Take Attendance" />
+        <item
+            android:id="@+id/retrieve_all_data"
+            android:icon="@drawable/ic_supervisor_account_black_24dp"
+            android:title="Retrieve All Data" />
+        <item
+            android:id="@+id/retrieve_selected_data"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="Retrieve Selected Data" />
+    </group>
+</menu>
