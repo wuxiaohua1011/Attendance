@@ -45,10 +45,6 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import static android.app.Activity.RESULT_OK;
 
 
-/**
- * Created by micha on 1/5/2017.
- */
-
 public class RetrieveAllData extends Fragment{
     GoogleAccountCredential mCredential;
     private TextView mOutputText;
@@ -113,7 +109,7 @@ public class RetrieveAllData extends Fragment{
         } else if (mCredential.getSelectedAccountName() == null) {
             chooseAccount();
         } else if (! isDeviceOnline()) {
-            mOutputText.setText("No network connection available.");
+            mOutputText.setText(getString(R.string.no_network_error));
         } else {
             new MakeRequestTask(mCredential).execute();
         }
@@ -166,8 +162,7 @@ public class RetrieveAllData extends Fragment{
             case REQUEST_GOOGLE_PLAY_SERVICES:
                 if (resultCode != RESULT_OK) {
                     mOutputText.setText(
-                            "This app requires Google Play Services. Please install " +
-                                    "Google Play Services on your device and relaunch this app.");
+                            getString(R.string.install_google_play_request));
                 } else {
                     getResultsFromApi();
                 }
@@ -299,7 +294,7 @@ public class RetrieveAllData extends Fragment{
     private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
         private com.google.api.services.sheets.v4.Sheets mService = null;
         private Exception mLastError = null;
-        private ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
+        private ArrayList<ArrayList<String>> data = new ArrayList<>();
         MakeRequestTask(GoogleAccountCredential credential) {
             HttpTransport transport = AndroidHttp.newCompatibleTransport();
             JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
@@ -333,7 +328,7 @@ public class RetrieveAllData extends Fragment{
         private List<String> getDataFromApi() throws IOException {
             String spreadsheetId = "1DHqf4fFbxq0Sn0xwIAnD4QKbDF-QvR8owBAdu0Qk1q0";
             String range = "Compiled!A1:AF13";
-            List<String> results = new ArrayList<String>();
+            List<String> results = new ArrayList<>();
             ValueRange response = this.mService.spreadsheets().values()
                     .get(spreadsheetId, range)
                     .execute();
@@ -364,15 +359,15 @@ public class RetrieveAllData extends Fragment{
         protected void onPostExecute(List<String> output) {
             mProgress.hide();
             if (output == null || output.size() == 0) {
-                mOutputText.setText("No results returned.");
+                mOutputText.setText(getString(R.string.no_result_found));
             } else {
-                mOutputText.setText("Results Retrieved: " + data.get(2).get(0));
+                mOutputText.setText(getString(R.string.result_retrieved));
                 for (int row = 0; row< data.size();row++){
                     TableRow tableRow = new TableRow(tableLayout.getContext());
                     TableRow.LayoutParams tableRowLayoutParam = new TableRow.LayoutParams();
                     tableRow.setLayoutParams(tableRowLayoutParam);
                     tableLayout.addView(tableRow,row);
-                    mOutputText.setText(row+"");
+                    mOutputText.setText(row);
                     for (int col = 0; col<data.get(row).size();col++){
                         TextView textView = new TextView(tableRow.getContext());
                         textView.setText(data.get(row).get(col));
@@ -397,11 +392,11 @@ public class RetrieveAllData extends Fragment{
                             ((UserRecoverableAuthIOException) mLastError).getIntent(),
                             RetrieveAllData.REQUEST_AUTHORIZATION);
                 } else {
-                    mOutputText.setText("The following error occurred:\n"
+                    mOutputText.setText(getString(R.string.error_occured)+ "\n"
                             + mLastError.getMessage());
                 }
             } else {
-                mOutputText.setText("Request cancelled.");
+                mOutputText.setText(getString(R.string.request_cancelled));
             }
         }
     }

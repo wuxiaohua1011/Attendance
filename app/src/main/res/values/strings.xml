@@ -118,4 +118,11 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="dates">Dates</string>
+    <string name="install_google_play_request">This app requires Google Play Services. Please install Google Play Services on your device and relaunch this app.</string>
+    <string name="no_network_error">No network connection available.</string>
+    <string name="no_result_found">No results returned.</string>
+    <string name="error_occured">The following error occurred</string>
+    <string name="result_retrieved">Results Retrieved: </string>
+    <string name="request_cancelled">Request cancelled.</string>
 </resources>

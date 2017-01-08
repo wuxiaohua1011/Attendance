@@ -13,14 +13,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
-import android.support.v4.util.ArraySet;
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -37,9 +34,8 @@ import com.google.api.services.sheets.v4.model.ValueRange;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -50,17 +46,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.common.collect.Table;
 
 import static android.app.Activity.RESULT_OK;
-import static android.content.Context.MODE_PRIVATE;
-import static example.com.attendance.RetrieveAllData.REQUEST_ACCOUNT_PICKER;
-import static example.com.attendance.RetrieveAllData.REQUEST_AUTHORIZATION;
-import static example.com.attendance.RetrieveAllData.REQUEST_PERMISSION_GET_ACCOUNTS;
-
-/**
- * Created by micha on 1/5/2017.
- */
 
 public class RetrieveSelectedData extends Fragment {
     GoogleAccountCredential mCredential;
@@ -79,7 +66,7 @@ public class RetrieveSelectedData extends Fragment {
     static  ArrayList<String> retrieveSelectedPlayerData;
     static ArrayList<String> dates;
     private TableLayout tableLayout;
-    private ScrollView scrollView;
+
 
 
     @Nullable
@@ -94,7 +81,7 @@ public class RetrieveSelectedData extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); //specify drop-down style
         selectPlayer.setAdapter(adapter);
 
-        scrollView = (ScrollView)myView.findViewById(R.id.retrieve_selected_data_scroll_view);
+
 
         setLayout();
         return myView;
@@ -317,7 +304,7 @@ public class RetrieveSelectedData extends Fragment {
     private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
         private com.google.api.services.sheets.v4.Sheets mService = null;
         private Exception mLastError = null;
-        private ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
+        private ArrayList<ArrayList<String>> data = new ArrayList<>();
         MakeRequestTask(GoogleAccountCredential credential) {
             HttpTransport transport = AndroidHttp.newCompatibleTransport();
             JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
@@ -351,7 +338,7 @@ public class RetrieveSelectedData extends Fragment {
         private List<String> getDataFromApi() throws IOException {
             String spreadsheetId = "1DHqf4fFbxq0Sn0xwIAnD4QKbDF-QvR8owBAdu0Qk1q0";
             String range = "Compiled!A1:AF13";
-            List<String> results = new ArrayList<String>();
+            List<String> results = new ArrayList<>();
             ValueRange response = this.mService.spreadsheets().values()
                     .get(spreadsheetId, range)
                     .execute();
@@ -406,7 +393,7 @@ public class RetrieveSelectedData extends Fragment {
                             if (col == 0){
                                 if (row==0){
                                     TextView textView = new TextView(tableRow.getContext());
-                                    textView.setText("Dates");
+                                    textView.setText(getString(R.string.dates));
                                     textView.setWidth(300);
                                     tableRow.addView(textView,col);
                                 }
