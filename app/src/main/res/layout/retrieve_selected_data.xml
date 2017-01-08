@@ -22,7 +22,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/retrieve_selected_data_button_get_data"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/retrieve_selected_data_scroll_view">
 
         <TableLayout
             android:layout_width="match_parent"

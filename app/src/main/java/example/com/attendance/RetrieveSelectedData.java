@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -78,6 +79,7 @@ public class RetrieveSelectedData extends Fragment {
     static  ArrayList<String> retrieveSelectedPlayerData;
     static ArrayList<String> dates;
     private TableLayout tableLayout;
+    private ScrollView scrollView;
 
 
     @Nullable
@@ -91,6 +93,8 @@ public class RetrieveSelectedData extends Fragment {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.player_names, android.R.layout.simple_spinner_item); // Creating adapter for spinner
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); //specify drop-down style
         selectPlayer.setAdapter(adapter);
+
+        scrollView = (ScrollView)myView.findViewById(R.id.retrieve_selected_data_scroll_view);
 
         setLayout();
         return myView;
@@ -371,6 +375,9 @@ public class RetrieveSelectedData extends Fragment {
         @Override
         protected void onPreExecute() {
             mProgress.show();
+            mProgress.setMessage("Loading");
+            tableLayout.removeAllViews();
+
         }
 
         @Override
@@ -397,15 +404,23 @@ public class RetrieveSelectedData extends Fragment {
                     tableLayout.addView(tableRow,row);
                         for (int col = 0; col<=1;col++){
                             if (col == 0){
-                                TextView textView = new TextView(tableRow.getContext());
-                                textView.setText(dates.get(row));
-                                textView.setWidth(250);
-                                tableRow.addView(textView,col);
+                                if (row==0){
+                                    TextView textView = new TextView(tableRow.getContext());
+                                    textView.setText("Dates");
+                                    textView.setWidth(300);
+                                    tableRow.addView(textView,col);
+                                }
+                                else {
+                                    TextView textView = new TextView(tableRow.getContext());
+                                    textView.setText(dates.get(row));
+                                    textView.setWidth(300);
+                                    tableRow.addView(textView, col);
+                                }
                             }
                             else{
                                 TextView textView = new TextView(tableRow.getContext());
                                 textView.setText(retrieveSelectedPlayerData.get(row));
-                                textView.setWidth(250);
+                                textView.setWidth(300);
                                 tableRow.addView(textView,col);
                             }
 
