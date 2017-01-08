@@ -146,8 +146,8 @@ public class TakeAttendanceFragment extends Fragment {
         playerName.setPrompt("");
 
         statusString="";
-        statusTextView.setText("");
-        playerStatus.setPrompt("");
+        statusTextView.setText("Please Choose A Player");
+        playerStatus.setPrompt("Please Choose A Status");
 
         dateTextView.setText("");
     }

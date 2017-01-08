@@ -2,6 +2,7 @@ package example.com.attendance;
 
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -63,6 +64,7 @@ welcomeTextView=(TextView)findViewById(R.id.content_main_textview_welcome);
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this,SettingsActivity.class));
             return true;
         }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="example.com.attendance.SettingsActivity">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/setting_activity_editText_spreadsheet_key"
+        android:hint="Key of the Desired Spreadsheet"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/setting_activity_editText_name_of_the_desired_worksheet"
+        android:layout_below="@+id/setting_activity_editText_spreadsheet_key"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Name of the Desired WORKSHEET"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setting_activity_editText_name_of_the_desired_worksheet"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/activity_setting_toggleButton_setting"
+        android:textOff="Using Default Setting"
+        android:textOn="Using Custom Setting"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

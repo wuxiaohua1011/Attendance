@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="Retrieve Selected Data"
+    <Button
+        android:text="Retrieve Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/retrieve_selected_data_button_get_data" />
+
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
-</LinearLayout>
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/retrieve_selected_data_button_get_data"
+        android:layout_toEndOf="@+id/retrieve_selected_data_button_get_data"
+        android:id="@+id/retrieve_selected_data_select_name" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/retrieve_selected_data_button_get_data"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/retrieve_selected_data_table_layout">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+    </ScrollView>
+
+</RelativeLayout>
